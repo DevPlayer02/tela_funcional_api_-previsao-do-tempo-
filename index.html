@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>DNC | PREVISÃO DO TEMPO</title>
+</head>
+<body>
+    <!-- inicio do cabeçario -->
+    <header>
+        <h1><b>DncWeather</b></h1>
+        <ul>
+            <li>
+              Endereços
+            </li>
+            <li>
+              Previsão do tempo
+            </li>
+          </ul>
+    </header>
+    <!-- fim do cabeçario -->
+
+    <!-- inicio do menu -->
+    <div id="menu">
+        <div id="menu-inicial">
+            <h1>   
+                Descubra Mais com Precisão:<br/>
+                Previsões do Tempo e endereços<br/>
+                em tempo real.
+            </h1>
+            <img src="/img/nuvem.svg" alt="nuvem-icon">
+        </div>
+        <form id="form" action="https://api.sheetmonkey.io/form/6ZMjaWaA81rtKkRbSPfNxs" method="post">
+            <label for="name">Primeiro Nome:</label><br>
+            <input id="name" type="text" name="nome" required  placeholder="Insira seu primeiro nome"><br>
+    
+            <label for="email">Email:</label><br>
+            <input id="email" type="email" name="e-mail" required  placeholder="Insira seu e-mail"><br>
+    
+            <label for="cep">Digite o CEP:</label><br>
+            <input id="cep" type="text" name="cep" required  placeholder="Insira o CEP"><br>
+            
+            <input type="hidden" name="Created" value="x-sheetmonkey-current-date-time" />
+
+            <label for="cordenadas">Digite a latitude e longitude para saber a previsão:</label><br>
+            <div id="cordenadas">
+                <input id="latitude" type="text" name="Latitude" placeholder="Latitude"><br>
+                <input id="longitude" type="text" name="Longitude" placeholder="Longitude"><br>
+            </div>
+            
+            <button type="button" onclick="getAddressByCep(), getPrevisao()" id="button">Acessar</button>
+        </form>
+    </div>
+    <!-- fim do menu -->
+
+    <!-- inicio do resultado -->
+    <div id="menu-result">
+        <div id="menu-result__label">
+            <h1>Resultado da busca por CEP: </h1>
+            <img src="/img/local.svg" alt="local">
+        </div>
+        <div id="menu-result__cep">
+            <table id="resultado-cep-table">
+                <thead>
+                    <th>Logradouro/nome</th>
+                    <th>Bairro/Distrito</th>
+                    <th>Localidade/UF</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="resul-tempo">
+        <h1 id="label-tempo">Previsão do tempo na região:</h1>
+        <img src="/img/tempo.svg" alt="tempo">
+    </div>
+    <!-- inicio do resultado -->
+
+    <script src="index.js"></script>
+</body>
+</html>
